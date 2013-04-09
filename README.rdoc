@@ -1,0 +1,12 @@
+= Puppet module: ipfilter
+
+This is a puppet module to manage ipfilter in solaris primarily.
+
+== License
+Released under the terms of Apache 2 License.
+
+== Support
+Please log tickets and issues at our [Projects site](https://github.com/janorn/puppet-ipfilter/issues)
+
+== Usage
+
