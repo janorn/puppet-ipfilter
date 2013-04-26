@@ -1,0 +1,17 @@
+# Rule <%= @name %>
+<% if scope.lookupvar('array_source_v6').length > 0 -%>
+<% scope.lookupvar('array_source_v6').each do |s| -%>
+<% if scope.lookupvar('array_destination_v6').length > 0 -%>
+<% scope.lookupvar('array_destination_v6').each do |d| -%>
+<%= @action %> <%= @direction %> quick <%= scope.lookupvar('true_protocol') %> from <%= s %> to <%= d %> <%= scope.lookupvar('true_port') %><%= @state %>
+<% end -%>
+<% else -%>
+<%# No destination ip -%>
+<%= @action %> <%= @direction %> quick <%= scope.lookupvar('true_protocol') %> from <%= s %> to any <%= scope.lookupvar('true_port') %><%= @state %>
+<% end -%>
+<% end -%>
+<% else -%>
+<%# No source ip -%>
+<%= @action %> <%= @direction %> quick <%= scope.lookupvar('true_protocol') %> all
+<% end -%>
+

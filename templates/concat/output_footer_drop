@@ -1,0 +1,4 @@
+# Don't allow any generic outgoing connections
+# Be aware that you will most probably need to add DNS rules
+# to be able to connect to the machine.
+

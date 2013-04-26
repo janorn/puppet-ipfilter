@@ -10,3 +10,33 @@ Please log tickets and issues at our [Projects site](https://github.com/janorn/p
 
 == Usage
 
+This config:
+
+class { 'ipfilter': 
+  block_policy => 'reject',
+}
+
+ipfilter::rule { 'http': 
+  port       => '80',
+  protocol   => 'tcp',
+}
+
+Will generate this ipf.conf file.
+## File Managed by Puppet
+# Default block rule with reject. 
+block return-icmp-as-dest(3) in log all
+block out log all
+
+# Accept all ICMP pkgs
+pass in quick proto icmp from any to <thishost>
+pass out quick proto icmp from <thishost> to any
+
+# Allow ssh on port 22
+pass in quick proto tcp from any to <thishost> port = 22 keep state
+
+# Rule http
+pass in quick proto tcp from any to <thishost> port = 80 keep state
+
+# Allow connections originating from local machine out
+pass out quick proto tcp all flags S/SA keep state
+pass out quick proto udp all keep state

@@ -1,0 +1,4 @@
+# Allow connections originating from local machine out
+pass out quick proto tcp all flags S/SA keep state
+pass out quick proto udp all keep state
+

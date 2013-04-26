@@ -1,0 +1,4 @@
+# Accept all ICMP pkgs
+pass in quick proto icmp from any to <thishost>
+pass out quick proto icmp from <thishost> to any
+

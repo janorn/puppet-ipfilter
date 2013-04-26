@@ -1,0 +1,4 @@
+# Default block rule with reject. 
+block return-icmp-as-dest(3) in log all
+block out log all
+

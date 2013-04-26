@@ -1,0 +1,12 @@
+# Accept "safe" ICMP pkgs
+# Ping in & out
+pass in quick proto icmp from any to <thishost> icmp-type 0 code 0
+pass out quick proto icmp from <thishost> to any icmp-type 0 code 0
+pass in quick proto icmp from any to <thishost> icmp-type 8
+pass out quick proto icmp from <thishost> to any icmp-type 8
+# Destination unreachable
+pass in quick proto icmp from any to <thishost> icmp-type 3
+# Time Exceeded
+pass in quick proto icmp from any to <thishost> icmp-type 11 code 0
+pass in quick proto icmp from any to <thishost> icmp-type 11 code 1
+

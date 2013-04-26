@@ -1,0 +1,4 @@
+# Default block rule. 
+block in log all
+block out log all
+
