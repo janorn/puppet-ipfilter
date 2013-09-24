@@ -9,5 +9,5 @@ project_page 'https://github.com/janorn/puppet-ipfilter'
 
 ## Add dependencies, if any:
 # dependency 'username/name', '>= 1.2.0'
-dependency 'puppetlabs/stdlib'
+dependency 'puppetlabs/stdlib', '>= 4.0.0'
 dependency 'ripienaar/concat'

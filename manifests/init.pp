@@ -25,7 +25,7 @@
 #                        pass  = Notice
 #                        log   = info
 # $safe_ssh            - Enable incoming ssh rule from any. Default true.
-# $package             - Software pkgs require for ipfilter. 
+# $package             - Software pkgs require for ipfilter.
 # $version             - N/A
 # $service             - Service name for ipfilter
 # $service_status      - Does service have status? Default true.
@@ -93,12 +93,12 @@ class ipfilter (
   $audit_only          = $ipfilter::params::audit_only,
   ) inherits ipfilter::params {
 
-  $bool_service_autorestart = any2bool($service_autorestart)
-  $bool_absent = any2bool($absent)
-  $bool_disable = any2bool($disable)
-  $bool_disableboot = any2bool($disableboot)
-  $bool_debug = any2bool($debug)
-  $bool_audit_only = any2bool($audit_only)
+  $bool_service_autorestart = str2bool($service_autorestart)
+  $bool_absent = str2bool($absent)
+  $bool_disable = str2bool($disable)
+  $bool_disableboot = str2bool($disableboot)
+  $bool_debug = str2bool($debug)
+  $bool_audit_only = str2bool($audit_only)
 
   ### Dependencies
   Class['stdlib'] -> Class['ipfilter']
@@ -161,8 +161,11 @@ class ipfilter (
     default   => 'drop',
   }
 
-  $real_safe_ssh = any2bool($safe_ssh)
-  $manage_ssh = bool2ensure($real_safe_ssh)
+  $real_safe_ssh = str2bool($safe_ssh)
+  $manage_ssh = $real_safe_ssh ? {
+    false => 'absent',
+    true  => 'present',
+  }
 
   $real_broadcast_policy = $broadcast_policy ? {
     'drop'    => 'drop',
