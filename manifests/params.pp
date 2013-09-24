@@ -54,7 +54,7 @@ class ipfilter::params  {
 # (Modify to adapt to unsupported OSes)
 
   $package = $::operatingsystem ? {
-    /(?i:Solaris)/ => $::operatingsystemrelease ? {
+    /(?i:Solaris)/ => $::kernelrelease ? {
       '5.10'  => ['SUNWipfr','SUNWipfu'],
       default => 'ipfilter',
     },
