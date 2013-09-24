@@ -1,3 +1,3 @@
 # Allow ssh on port 22
-pass in quick proto tcp from any to <thishost> port = 22 keep state
+pass in quick proto tcp from any to <thishost> port = 22 flags S/SA keep state
 

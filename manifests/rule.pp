@@ -54,7 +54,7 @@ define ipfilter::rule (
     default => "proto ${protocol}",
   }
   $state = $protocol ? {
-    'tcp'   => ' keep state',
+    'tcp'   => ' flags S/SA keep state',
     'udp'   => ' keep state',
     default => undef,
   }
