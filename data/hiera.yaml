@@ -1,0 +1,5 @@
+:hierarchy:
+# Due to bug FACT-155 we can't use operatingsystemrelease
+#  - "%{::operatingsystem}/%{::operatingsystemrelease}"
+  - "%{::operatingsystem}/%{::kernelrelease}"
+  - "%{::operatingsystem}/common"
