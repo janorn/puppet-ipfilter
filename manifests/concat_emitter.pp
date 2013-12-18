@@ -14,7 +14,6 @@ define ipfilter::concat_emitter(
 ) {
 
   include ipfilter
-  include concat::setup
 
   $real_icmp = $is_ipv6 ? {
     true    => 'ipv6_',

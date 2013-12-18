@@ -40,7 +40,6 @@ define ipfilter::rule (
   $debug          = false ) {
 
   include ipfilter
-  include concat::setup
 
   # If (concat) order is not defined we find out the right one
   $true_order = $order ? {
