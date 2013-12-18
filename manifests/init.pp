@@ -162,9 +162,10 @@ class ipfilter (
   }
 
   $real_safe_ssh = str2bool($safe_ssh)
+
   $manage_ssh = $real_safe_ssh ? {
-    false => 'absent',
-    true  => 'present',
+    false => absent ,
+    true  => present ,
   }
 
   $real_broadcast_policy = $broadcast_policy ? {

@@ -65,7 +65,11 @@ define ipfilter::rule (
     default  => "port ${port}",
   }
 
-  $ensure = bool2ensure($enable)
+  $real_ensure = str2bool($enable)
+  $ensure = $real_ensure ? {
+    false => absent ,
+    true  => present ,
+  }
 
   $array_source = is_array($source) ? {
     false     => $source ? {
