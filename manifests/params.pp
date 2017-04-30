@@ -46,7 +46,7 @@ class ipfilter::params  {
 
 # Define what to do with INPUT multicast packets
   $multicast_policy = 'accept'
-  
+
 # Location of ipf helper script
   $helper = '/etc/ipf/ipf-helper.sh'
 
@@ -97,17 +97,5 @@ class ipfilter::params  {
   $disableboot = false
   $debug = false
   $audit_only = false
-
-  ## FILE SERVING SOURCE
-  case $::base_source {
-    '': {
-      $general_base_source = $::puppetversion ? {
-        /(^0.25)/ => 'puppet:///modules',
-        /(^0.)/   => "puppet://${servername}",
-        default   => 'puppet:///modules',
-      }
-    }
-    default: { $general_base_source = $::base_source }
-  }
 
 }
