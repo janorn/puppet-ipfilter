@@ -7,6 +7,7 @@
   "source": "https://github.com/janorn/puppet-ipfilter",
   "project_page": "https://github.com/janorn/puppet-ipfilter",
   "issues_url": "https://github.com/janorn/puppet-ipfilter/issues",
+  "tags": ["ipfilter", "firewall", "solaris"],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
