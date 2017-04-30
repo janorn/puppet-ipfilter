@@ -1,0 +1,35 @@
+{
+  "name": "janorn-ipfilter",
+  "version": "0.2.0",
+  "author": "Jan Örnstedt",
+  "summary": "Puppet module for ipfilter on solaris",
+  "license": "Apache 2.0",
+  "source": "https://github.com/janorn/puppet-ipfilter",
+  "project_page": "https://github.com/janorn/puppet-ipfilter",
+  "issues_url": "https://github.com/janorn/puppet-ipfilter/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 4.1.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs-concat",
+      "version_range": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 2.7.0 < 5.0.0"
+    }
+  ]
+}
