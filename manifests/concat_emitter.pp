@@ -21,11 +21,11 @@ define ipfilter::concat_emitter(
   }
 
   concat { $emitter_target:
-    mode    => $ipfilter::config_file_mode,
-    owner   => $ipfilter::config_file_owner,
-    group   => $ipfilter::config_file_group,
-    notify  => Service['ipfilter'],
-    backup  => '.previous',
+    mode   => $ipfilter::config_file_mode,
+    owner  => $ipfilter::config_file_owner,
+    group  => $ipfilter::config_file_group,
+    notify => Service['ipfilter'],
+    backup => '.previous',
   }
 
 

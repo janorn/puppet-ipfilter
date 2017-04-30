@@ -270,13 +270,13 @@ class ipfilter (
     'file': { include ipfilters::file }
     'concat': {
       ipfilter::concat_emitter { 'v4':
-        emitter_target  => $ipfilter::config_file,
-        is_ipv6         => false,
+        emitter_target => $ipfilter::config_file,
+        is_ipv6        => false,
       }
       if $enable_v6 {
         ipfilter::concat_emitter { 'v6':
-          emitter_target  => $ipfilter::config_file_v6,
-          is_ipv6         => true,
+          emitter_target => $ipfilter::config_file_v6,
+          is_ipv6        => true,
         }
       }
     }
